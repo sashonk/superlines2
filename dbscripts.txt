@@ -1,0 +1,94 @@
+	
+CREATE TABLE IF NOT EXISTS users  (
+	user_name VARCHAR(30)  PRIMARY KEY,
+	user_password VARCHAR(30) NOT NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS roles(
+	role_name VARCHAR(15) NOT NULL PRIMARY KEY
+);
+    
+CREATE TABLE IF NOT EXISTS user_roles
+(
+	user_name VARCHAR(15) NOT NULL,
+	role_name VARCHAR(15) NOT NULL,
+	PRIMARY KEY (user_name, role_name)
+);
+
+
+CREATE TABLE IF NOT EXISTS profiles (
+	id INT PRIMARY KEY AUTO_INCREMENT, 
+	name VARCHAR(100), 
+	surname VARCHAR(120),
+	crts TIMESTAMP, 
+	accountid VARCHAR(30), 
+	rankid INT, 
+	email VARCHAR(100)
+	#FOREIGN KEY(accountid) REFERENCES USERS(user_name) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS scoredata(
+	userid INT,
+	score INT NOT NULL,
+	crts TIMESTAMP,	
+	rankid INT,
+	FOREIGN KEY(userid) REFERENCES profiles(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS applications(
+	accountid VARCHAR(30) NOT NULL,
+	token VARCHAR(100) NOT NULL,
+	crts TIMESTAMP
+	#FOREIGN KEY(accountid) REFERENCES users(user_name) ON DELETE CASCADE	
+);
+
+CREATE TABLE IF NOT EXISTS persistance(
+  	accountid VARCHAR(30) NOT NULL,
+	superlinescontext BLOB,
+	rankid INT
+	#FOREIGN KEY(accountid) REFERENCES users(user_name) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS rankdata(
+    rankid INT PRIMARY KEY,
+    ballsCount INT,
+    normalAward INT,
+    extraAward INT,
+    scatterCount INT,
+    colorCount INT,
+    tableSize INT,
+    minScore INT,
+    progressiveEnabled BOOLEAN,
+    progressive1Threshold INT,
+    progressive2Threshold INT,
+    progressive1Mul INT,
+    progressive2Mul INT,
+	normative INT	
+);
+
+CREATE INDEX users_user_name_Index ON users(user_name);
+CREATE INDEX user_roles_user_name_Index ON user_roles(user_name);
+CREATE INDEX profiles_accountid_Index ON profiles(accountid);
+CREATE INDEX profiles_id_Index ON profiles(id);
+CREATE INDEX persistance_accountid_Index ON persistance(accountid);
+CREATE INDEX persistance_rankid_Index ON persistance(rankid);
+
+INSERT INTO rankdata (rankid, ballsCount, normalAward, extraAward, scatterCount, colorCount, tableSize, minScore, progressiveEnabled, progressive1Threshold, progressive2Threshold, progressive1Mul, progressive2Mul, normative) values
+(1, 5, 100, 50, 3, 5, 10, 1000, true, 3000, 7000, 2, 4, 0);
+INSERT INTO rankdata (rankid, ballsCount, normalAward, extraAward, scatterCount, colorCount, tableSize, minScore, progressiveEnabled, progressive1Threshold, progressive2Threshold, progressive1Mul, progressive2Mul, normative) values
+(2, 5, 100, 50, 3, 6, 9, 2000, true, 5000, 10000, 2, 4, 20000);
+INSERT INTO rankdata (rankid, ballsCount, normalAward, extraAward, scatterCount, colorCount, tableSize, minScore, progressiveEnabled, progressive1Threshold, progressive2Threshold, progressive1Mul, progressive2Mul, normative) values
+(3, 5, 100, 50, 3, 7, 9, 3000, true, 6000, 12000, 2, 4, 30000);
+INSERT INTO rankdata (rankid, ballsCount, normalAward, extraAward, scatterCount, colorCount, tableSize, minScore, progressiveEnabled, progressive1Threshold, progressive2Threshold, progressive1Mul, progressive2Mul, normative) values
+(4, 5, 100, 50, 3, 8, 9, 3000, true, 6000, 12000, 2, 4, 30000);
+INSERT INTO rankdata (rankid, ballsCount, normalAward, extraAward, scatterCount, colorCount, tableSize, minScore, progressiveEnabled, progressive1Threshold, progressive2Threshold, progressive1Mul, progressive2Mul, normative) values
+(5, 5, 100, 50, 3, 9, 9, 3000, true, 6000, 12000, 2, 4, 30000);
+INSERT INTO rankdata (rankid, ballsCount, normalAward, extraAward, scatterCount, colorCount, tableSize, minScore, progressiveEnabled, progressive1Threshold, progressive2Threshold, progressive1Mul, progressive2Mul, normative) values
+(6, 6, 100, 50, 3, 9, 9, 3000, true, 6000, 12000, 2, 4, 40000);
+
+INSERT INTO roles (role_name) values ('user');
+INSERT INTO roles (role_name) values ('unconfirmed');
+INSERT INTO roles (role_name) values ('admin');
+
+
