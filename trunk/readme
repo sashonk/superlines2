@@ -1,0 +1,6 @@
+webservice requires jax-ws ri 2.2.7 libraries
+source target 1.7
+tomcat 7
++ mysql jdbc driver
+
+IF YOU HAVE ??? INSTEAD OF RUSSIAN CHARACTERS MAKE SURE MYSQL USES UTF8 CHARACTER ENCODING

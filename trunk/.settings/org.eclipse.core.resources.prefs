@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/data/promotion/ADEPT-ru.properties=UTF-8
+encoding//WebContent/WEB-INF/data/promotion/AVERAGE-ru.properties=UTF-8
+encoding//WebContent/WEB-INF/data/promotion/EXPERIENCED-ru.properties=UTF-8
+encoding//WebContent/WEB-INF/data/promotion/GODLIKE-ru.properties=UTF-8
+encoding//WebContent/WEB-INF/data/promotion/MASTER-ru.properties=UTF-8
+encoding//WebContent/index.jsp=UTF-8
+encoding//WebContent/rate.jsp=UTF-8
+encoding//WebContent/registration.jsp=UTF-8
+encoding//WebContent/rules.jsp=UTF-8
+encoding//data/client/localization-en.properties=ISO-8859-1
+encoding/<project>=UTF-8
