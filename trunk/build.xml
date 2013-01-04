@@ -63,8 +63,6 @@
 	               <fileset dir="config" />
 		</copy>
 
-		<copy file="lib/log4j.jar" todir="WebContent/WEB-INF/lib" />
-		<copy file="lib/commons-logging.jar" todir="WebContent/WEB-INF/lib" />
 
 	
 		
