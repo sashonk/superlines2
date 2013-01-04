@@ -5,8 +5,7 @@
 	<property name="war_name" value="ROOT.war" />
 	<property name="builddir" value="classes"/>
 	<property  name="distdir" value="dist" />
-	<property name="downloads" value="/var/lib/tomcat6/webapps/ROOT/downloads" />
-	<property name="ext_libs" value="/tomcat/lib" />
+	<property name="ext_libs" value="/usr/share/tomcat6/lib" />
 	<property name="datafolder" value="WebContent/WEB-INF/data" />
 	<property name="webapps" value="/var/lib/tomcat6/webapps" />
 	
@@ -63,6 +62,9 @@
 		<copy todir="${datafolder}/update/config" overwrite="true">
 	               <fileset dir="config" />
 		</copy>
+
+		<copy file="lib/log4j.jar" todir="WebContent/WEB-INF/lib" />
+		<copy file="lib/commons-logging.jar" todir="WebContent/WEB-INF/lib" />
 
 	
 		
