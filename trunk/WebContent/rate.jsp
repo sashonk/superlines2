@@ -3,7 +3,8 @@
 
 <%@ page
 
-import="java.util.List" 
+
+import="java.util.*"
 import="superlines.server.RateDAO" 
 import="superlines.ws.RateData" 
 		
@@ -26,9 +27,17 @@ import="superlines.ws.RateData"
 	
 		List<RateData> data = dao.getRateData(null);
 		int count = 1;
+
+		Map<Integer, String> styleMap = new HashMap<Integer, String>();
+		styleMap.put(Integer.valueOf(1), "'color:red; font-weight: bold'");
+		styleMap.put(Integer.valueOf(2), "'color:green; font-weight:bold'");
+		styleMap.put(Integer.valueOf(3), "'color:blue; font-weight:bold'");
+
 		for(RateData item : data){
+
+			String style= styleMap.get(Integer.valueOf(count));
 			%> 
-			<tr> 
+			<tr <%= style==null ? "" : "style="+style  %>> 
 				<td align="center"><%= count %></td>
 				<td align="center"><%= item.getName() %></td>
 				<td align="center"><%= item.getRank() %></td>
