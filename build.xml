@@ -23,6 +23,7 @@
 				<include name="data/**/*" />
 				<include name="lib/**/*" />
 				<include name="update/**/*"/>
+				<include name="run.*"/>
 	</patternset>
 
 	<target name="build">
