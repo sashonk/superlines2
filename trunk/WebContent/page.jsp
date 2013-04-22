@@ -51,6 +51,9 @@
 				else if(p.equals("rate")){ %>
 				<%@ include file="rate.jsp" %>
 				<% 	}
+				else if(p.equals("faq")){ %>
+				<jsp:include page="faq.jsp" />
+				<%	}
 				else if(p.equals("registration")){ %>
 				<%@ include file="registration.jsp" %>
 				<% 	}
