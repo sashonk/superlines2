@@ -34,6 +34,7 @@
 					
 					</div>
 					
+					<div style="padding: 10px;"><a href="?page=faq">FAQ</a></div>
 					<div style="padding: 10px;"><a href="?page=rules">правила</a></div>				
 					<div style="padding: 10px;"><a href="?page=rate">рейтинги</a></div>
 					<div style="padding: 10px;"><a href="?page=registration">создать аккаунт</a></div>
