@@ -32,8 +32,8 @@ import="superlines.core.Rank"
 		List<RateData> list = data.get(rank);
 		
 		%> 
-		<div class="title"><b><%= rank.toString() %></b></div>
-		<table border="1" cellpadding="5" width="40%" align="center" style="margin-bottom: 50px;">
+		<div class="title"><b>Ранг: <%= rank.toString() %></b></div>
+		<table style='width: 300px; margin: 0 auto;' class='table table-striped table-bordered table-condensed'>
 			<tr>
 				<th></th>
 				<th>Имя</th>	

@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Superlines 2.0</title>
-
+<title>JLines</title>
+<LINK href="bootstrap.css" rel="stylesheet" type="text/css">
 <style>
 	body{
 		font-family: Geneva, sans-serif;
@@ -16,6 +16,10 @@
 	
 	td.content{
 		font-size: 14px;
+	}
+	
+	table  th {
+		text-align : center;
 	}
 	
 
@@ -37,7 +41,7 @@
 </head>
 <body>
 	<table width="50%" border="0" align="center" style="margin-bottom: 50px;">
-		<tr ><td align="center" style="font-size: 48px; font-weight: bold;"><!-- <img  src="tree.png" width="60" height="60"> -->superlines 2.0<!-- <img src="tree.png" width="60" height="60"> --></td></tr>
+		<tr ><td align="center" style="font-size: 48px; font-weight: bold;"><!-- <img  src="tree.png" width="60" height="60"> -->JLines<!-- <img src="tree.png" width="60" height="60"> --></td></tr>
 	<!-- 	<tr> <td align="center" style="font-size: 36px; font-weight: bold; color:red;"> новогоднее издание!</td> </tr> -->
 		<tr><td class="content">
 		
