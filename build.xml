@@ -5,7 +5,7 @@
 	<property name="war_name" value="ROOT.war" />
 	<property name="builddir" value="classes"/>
 	<property  name="distdir" value="dist" />
-	<property name="ext_libs" value="/usr/share/tomcat6/lib" />
+	<property name="ext_libs" value="D:\apache-tomcat-7.0.54\lib" />
 	<property name="datafolder" value="WebContent/WEB-INF/data" />
 	<property name="webapps" value="/var/lib/tomcat6/webapps" />
 	

@@ -9,6 +9,7 @@ import superlines.ws.ProfileResponse;
 
 
 
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -43,6 +44,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Document;
@@ -55,16 +57,14 @@ import superlines.core.Rank;
 import superlines.core.SuperlinesContext;
 import superlines.core.SuperlinesRules;
 import superlines.core.Util;
-
 import superlines.core.Profile;
-
 import superlines.ws.BaseResponse;
 import superlines.ws.BinaryResponse;
 import superlines.ws.FilesResponse;
 import superlines.ws.Message;
 import superlines.ws.PromotionResponse;
+import superlines.ws.RateData;
 import superlines.ws.Response;
-
 import superlines.ws.RateParameters;
 import superlines.ws.RateResponse;
 import superlines.ws.SuperlinesWebservice;
@@ -339,7 +339,9 @@ public class SuperlinesWebserviceImpl implements SuperlinesWebservice{
 		RateResponse response = new RateResponse();
 		try{
 			auth(auth);
-			response.getData().addAll(RateDAO.get().getRateData(params)) ;
+			
+			//TODO: implement per rank stats;
+			response.getData().addAll(new LinkedList<RateData>()) ;
 					
 		}
 		catch(Exception ex){

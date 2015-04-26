@@ -7,40 +7,51 @@
 import="java.util.*"
 import="superlines.server.RateDAO" 
 import="superlines.ws.RateData" 
-		
+import="superlines.core.Rank"		
 
 %>
 
+<%
+	Map<Integer, String> styleMap = new HashMap<Integer, String>();
+	styleMap.put(Integer.valueOf(1), "'color:red; font-weight: bold'");
+	styleMap.put(Integer.valueOf(2), "'color:green; font-weight:bold'");
+	styleMap.put(Integer.valueOf(3), "'color:blue; font-weight:bold'");
 
-<div class="title"><b>рейтинги</b></div>
-<table border="1" cellpadding="5" width="40%" align="center" style="margin-bottom: 50px;">
-	<tr>
-		<th></th>
-		<th>Имя</th>
-		<th>Ранг</th>		
-		<th>Очки</th>
-		
-	</tr>
 
-	<%
-		RateDAO dao = RateDAO.get();
+	RateDAO dao = RateDAO.get();
+	Map<Rank,List<RateData>> data = dao.getRateData(null);
 	
-		List<RateData> data = dao.getRateData(null);
+	Set<Rank> ranksSorted = new TreeSet<Rank>(new Comparator<Rank>(){
+	    public int compare(Rank o1, Rank o2){
+	    	return Integer.valueOf(o2.getRank()).compareTo(Integer.valueOf(o1.getRank()));
+	    }
+	});
+
+	ranksSorted.addAll(data.keySet());
+	for(Rank rank : ranksSorted){
+		List<RateData> list = data.get(rank);
+		
+		%> 
+		<div class="title"><b><%= rank.toString() %></b></div>
+		<table border="1" cellpadding="5" width="40%" align="center" style="margin-bottom: 50px;">
+			<tr>
+				<th></th>
+				<th>Имя</th>	
+				<th>Очки</th>
+				
+			</tr>
+		 
+		
+		<% 
+				
 		int count = 1;
-
-		Map<Integer, String> styleMap = new HashMap<Integer, String>();
-		styleMap.put(Integer.valueOf(1), "'color:red; font-weight: bold'");
-		styleMap.put(Integer.valueOf(2), "'color:green; font-weight:bold'");
-		styleMap.put(Integer.valueOf(3), "'color:blue; font-weight:bold'");
-
-		for(RateData item : data){
+		for(RateData item : list){
 
 			String style= styleMap.get(Integer.valueOf(count));
 			%> 
 			<tr <%= style==null ? "" : "style="+style  %>> 
 				<td align="center"><%= count %></td>
 				<td align="center"><%= item.getName() %></td>
-				<td align="center"><%= item.getRank() %></td>
 				<td align="center"><%= item.getScore() %></td>
 			
 			</tr>
@@ -48,10 +59,17 @@ import="superlines.ws.RateData"
 			
 			count ++;
 		}
-	
-	%>
+		
+		%> 
+		</table>
+		
+		<% 
+		
+	}
 	
 
-</table>
+%>
+
+
 
 <div style="text-align: center"><a href="?">на главную</a></div>
