@@ -61,37 +61,39 @@ String email = request.getParameter("email");
 
 
 
-<form method="post">
-<table cellpadding="5"  align="center" style="padding: 20px;">
-	<tr>
-			<td align="right">имя</td>
-			<td><input type="text" name="name" value='<%= name == null ? "" : name %>'></td>
-	</tr>
-	<tr>
-		<td align="right">фамилия</td>
-		<td><input type="text" name="surname" value='<%= surname == null ? "" : surname %>'></td>
-	</tr>	
-	<tr>
-		<td align="right">логин</td>
-		<td><input type="text" name="login" value='<%= login == null ? "" : login %>'></td>
-	</tr>
-	<tr>
-		<td align="right">пароль</td>
-		<td><input type="password" name="password"></td>
-	</tr>	
-	<tr>
-		<td align="right">почта</td>
-		<td><input type="text" name="email" value='<%= email == null ? "" : email %>'></td>
-	</tr>
-	<tr>
-	<td></td>	
-		<td><input type="submit" value="OK" style="width: 80px;"></td>
-	</tr>		
-</table>
+<form style='width: 300px; margin: 0 auto;' class='form' role='form' method="post">
+	 <div class="form-group">
+    	<label for="name">Имя:</label>
+   		 <input  class="form-control" name="name" id="name">
+	  </div>
+	 <div class="form-group">
+    	<label for="surname">Фамилия:</label>
+   		 <input  class="form-control" name="surname" id="surname">
+	  </div>
+	 <div class="form-group">
+    	<label for="login">Логин:</label>
+   		 <input  class="form-control" name="login" id="login">
+	  </div>
+	 <div class="form-group">
+    	<label for="password">Пароль:</label>
+   		 <input type='password' class="form-control" name="password" id="password">
+	  </div>	
+	 <div class="form-group">
+    	<label for="email">E-mail:</label>
+   		 <input type='email' class="form-control" name="email" id="email">
+	  </div>
+	  <div class="form-group" >	  	  
+	  <input class='button' style='display:inline-block; margin: 0 auto;' type="submit" value="Принять">
+</div>		
+
 
 <input type="hidden"  name="register" value="true">
 <input type="hidden"  name="page" value="registration">	
 </form>
+
+
+
+
 
 
 

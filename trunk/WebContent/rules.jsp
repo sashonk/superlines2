@@ -9,7 +9,7 @@
 
 
 <div class="title"><b>правила</b></div>
-<table border="1" cellpadding="2">
+<table class='table table-striped table-bordered table-condensed'  >
 	<tr> 
 		<th>Ранг</th> 
 		<th>Шаров в линии</th> 
@@ -57,7 +57,7 @@
 
 
 <div class="title"><b>нормативы</b></div>
-<table  border="1" align="center" width="100%" cellpadding="10" style="margin-bottom: 50px;">
+<table  class='table table-striped table-bordered table-condensed'>
 <tr>
 	<td>Ранг</td>
 <%	
@@ -71,7 +71,7 @@
 
 
 <tr>
-<td>Очки</td>
+<td>Сумма очков</td>
 <%	
 for(Rank r : Rank.values()){
 	%> 

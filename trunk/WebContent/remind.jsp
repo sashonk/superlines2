@@ -31,10 +31,10 @@
 	if(!sent){
 %>
 
-<form style="text-align:center; margin-top: 20px; margin-bottom: 20px;">
+<form style='width: 500px; margin: 0 auto;' class='form-inline' style="text-align:center; margin-top: 20px; margin-bottom: 20px;">
 <span style="margin: 10px;">Введите свой логин</span>
-<span style="margin: 10px;"><input name="login"></span>
-<span style="margin: 10px;"><input type="submit" value="Напомнить"></span>
+<span style="margin: 10px;"><input class='form-control' name="login"></span>
+<span style="margin: 10px;"><input class='button form-control' type="submit" value="Напомнить"></span>
 <input type="hidden"  name="page" value="remind">	
 </form>
 

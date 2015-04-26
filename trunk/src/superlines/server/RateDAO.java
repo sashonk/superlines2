@@ -45,7 +45,7 @@ public class RateDAO extends DAO{
 		try{
 			c = m_dataSource.getConnection();
 			st = c.createStatement();
-			String sql = "select p.name name, "
+			String sql = "select p.name name, p.surname surname, "
 					+ "p.rankid rank, (select sum(s.score) "
 					+ "from scoredata s where s.userid = p.id and "
 					+ "s.rankid = p.rankid) sum "
@@ -56,7 +56,16 @@ public class RateDAO extends DAO{
 			rs = st.executeQuery(sql);
 			while(rs.next()){
 				RateData  data = new RateData();
-				data.setName(rs.getString("name"));
+				
+				String surname = rs.getString("surname");
+				String name = rs.getString("name");
+				
+				StringBuilder nameBuilder = new StringBuilder();
+				nameBuilder.append(surname);
+				if(name!=null && name.length()>0){
+					nameBuilder.append(" ").append(name.charAt(0)).append('.');										
+				}				
+				data.setName(nameBuilder.toString());
 				data.setScore(rs.getInt("sum"));
 				Rank rank = Rank.getRank(rs.getInt("rank"));
 				data.setRank(rank);
