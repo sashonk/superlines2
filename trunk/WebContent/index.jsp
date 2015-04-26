@@ -9,7 +9,7 @@
 <ul>
 				<li><div  style="background:#dddddd"><b>описание</b></div>
 					<div style="padding: 10px;">
-					мы очень рады сообщить вам о том, что вышла новая версия игры Superlines! 					
+					Superlines - разновидность популярной DOS-игры  <a href='https://ru.wikipedia.org/wiki/Lines'>Шарики</a>, полностью реализованная на Java		
 					</div>
 				</li>
 					
@@ -39,7 +39,7 @@
 					<div style="padding: 10px;"><a href="?page=rate">рейтинги</a></div>
 					<div style="padding: 10px;"><a href="?page=registration">создать аккаунт</a></div>
 					<div style="padding: 10px;"><a href="?page=remind">напомнить пароль</a></div>					
-					<div style="padding: 10px;"><a href='downloads/superlines2.zip'>загрузка</a></div>					
+					<div style="padding: 10px;"><a href='downloads/superlines2.zip'>загрузка клиента игры</a></div>					
 	
 					
 					</li>
