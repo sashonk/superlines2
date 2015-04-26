@@ -34,12 +34,12 @@
 					
 					</div>
 					
-					<div style="padding: 10px;"><a href="?page=faq">FAQ</a></div>
-					<div style="padding: 10px;"><a href="?page=rules">правила</a></div>				
-					<div style="padding: 10px;"><a href="?page=rate">рейтинги</a></div>
-					<div style="padding: 10px;"><a href="?page=registration">создать аккаунт</a></div>
-					<div style="padding: 10px;"><a href="?page=remind">напомнить пароль</a></div>					
-					<div style="padding: 10px;"><a href='downloads/superlines2.zip'>загрузка клиента игры</a></div>					
+					<a class='lnk' href="?page=faq">FAQ</a>
+					<a  class='lnk' href="?page=rules">правила</a>		
+					<a  class='lnk' href="?page=rate">рейтинги</a>
+					<a  class='lnk' href="?page=registration">создать аккаунт</a>
+					<a  class='lnk' href="?page=remind">напомнить пароль</a>				
+					<a  class='lnk' href='downloads/superlines2.zip'>загрузка </a>	
 	
 					
 					</li>

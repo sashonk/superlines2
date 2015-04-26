@@ -7,8 +7,6 @@ import javax.servlet.ServletContextListener;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import superlines.server.PromotionDAO;
-import superlines.server.RateDAO;
 import superlines.server.mail.MailHelper;
 
 public class SuperlinesContextListener implements ServletContextListener{

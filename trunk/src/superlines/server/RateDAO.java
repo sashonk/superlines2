@@ -3,8 +3,10 @@ package superlines.server;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -13,6 +15,8 @@ import javax.sql.DataSource;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+
 
 
 import superlines.core.Rank;
@@ -31,8 +35,9 @@ public class RateDAO extends DAO{
 		return instance;
 	}
 	
-	public List<RateData> getRateData(final RateParameters params) throws Exception{
-		List<RateData> result = new LinkedList<>();
+	public Map<Rank, List<RateData>> getRateData(final RateParameters params) throws Exception{
+		//List<RateData> result = new LinkedList<>();
+		Map<Rank, List<RateData> > result = new HashMap<Rank, List<RateData>>();
 		
 		Connection c = null;
 		Statement st = null;
@@ -40,7 +45,12 @@ public class RateDAO extends DAO{
 		try{
 			c = m_dataSource.getConnection();
 			st = c.createStatement();
-			String sql = "select p.name name, p.rankid rank, (select sum(s.score) from scoredata s where s.userid = p.id and s.rankid = p.rankid) sum from profiles p order by rank desc, sum desc limit 10";
+			String sql = "select p.name name, "
+					+ "p.rankid rank, (select sum(s.score) "
+					+ "from scoredata s where s.userid = p.id and "
+					+ "s.rankid = p.rankid) sum "
+					+ "from profiles p where p.accountid in (select r.user_name from user_roles r where r.role_name = 'user') "
+					+ "order by rank desc, sum desc limit 10";
 			
 															
 			rs = st.executeQuery(sql);
@@ -48,8 +58,16 @@ public class RateDAO extends DAO{
 				RateData  data = new RateData();
 				data.setName(rs.getString("name"));
 				data.setScore(rs.getInt("sum"));
-				data.setRank(Rank.getRank(rs.getInt("rank")));
-				result.add(data);
+				Rank rank = Rank.getRank(rs.getInt("rank"));
+				data.setRank(rank);
+				
+				List<RateData> list = result.get(rank);
+				if(list==null){
+					list = new LinkedList<RateData>();
+					result.put(rank, list);
+				}
+				
+				list.add(data);
 			}
 										
 		}

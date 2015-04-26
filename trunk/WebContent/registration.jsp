@@ -61,7 +61,7 @@ String email = request.getParameter("email");
 
 
 
-<form>
+<form method="post">
 <table cellpadding="5"  align="center" style="padding: 20px;">
 	<tr>
 			<td align="right">имя</td>
